@@ -1,0 +1,48 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/app.js",
+  "sources": [
+    "images/**/*",
+    "src/**/*",
+    "manifest/**",
+    "package.json",
+    "node_modules/web-animations-js/*"
+  ],
+  "extraDependencies": [
+    "manifest.json",
+    "node_modules/@webcomponents/webcomponentsjs/*.js",
+    "!node_modules/@webcomponents/webcomponentsjs/gulpfile.js",
+    "node_modules/@webcomponents/webcomponentsjs/bundles/*.js",
+    "node_modules/intl-messageformat/dist/*.js",
+    "node_modules/@polymer/app-storage/app-indexeddb-mirror/app-indexeddb-mirror-worker.js",
+    "node_modules/@polymer/app-storage/app-indexeddb-mirror/common-worker-scope.js",
+    "src/locales.json"
+  ],
+  "builds": [
+    {
+      "name": "es6-bundled",
+      "browserCapabilities": [
+        "es2015"
+      ],
+      "js": {
+        "minify": true,
+        "transformModulesToAmd": true
+      },
+      "css": {
+        "minify": true
+      },
+      "html": {
+        "minify": true
+      },
+      "bundle": true,
+      "addServiceWorker": true
+    }
+  ],
+  "moduleResolution": "node",
+  "npm": true,
+  "lint": {
+    "rules": [
+      "polymer-3"
+    ]
+  }
+}
